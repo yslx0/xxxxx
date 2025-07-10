@@ -11,16 +11,14 @@
             padding: 0;
             box-sizing: border-box;
         }
-
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            background: linear-gradient(135deg, #0f172a, #581c87, #312e81);
+            background: linear-gradient(135deg, #000000, #1a0033, #0d001a);
             color: white;
             min-height: 100vh;
             overflow-x: hidden;
             position: relative;
         }
-
         .container {
             display: flex;
             flex-direction: column;
@@ -30,14 +28,13 @@
             position: relative;
             z-index: 10;
         }
-
         .photo-frame {
             width: 16rem;
             height: 20rem;
             border-radius: 1rem;
             overflow: hidden;
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
-            border: 4px solid rgba(251, 146, 60, 0.3);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+            border: 4px solid rgba(251, 146, 60, 0.4);
             position: relative;
             margin-top: 2rem;
             background: linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1, #96ceb4, #ffeaa7);
@@ -45,18 +42,16 @@
             align-items: center;
             justify-content: center;
         }
-
         .photo-frame img {
             width: 100%;
             height: 100%;
             object-fit: cover;
             border-radius: 0.75rem;
         }
-
         .photo-placeholder {
             width: 90%;
             height: 90%;
-            background: rgba(255, 255, 255, 0.1);
+            background: rgba(255, 255, 255, 0.15);
             border-radius: 0.75rem;
             display: flex;
             align-items: center;
@@ -64,7 +59,6 @@
             font-size: 3rem;
             backdrop-filter: blur(10px);
         }
-
         .photo-corner {
             position: absolute;
             width: 8px;
@@ -73,16 +67,13 @@
             border-radius: 50%;
             animation: pulse 2s infinite;
         }
-
         .corner-1 { top: 8px; right: 8px; }
         .corner-2 { bottom: 8px; left: 8px; }
         .corner-3 { bottom: 8px; right: 8px; }
-
         .love-counter {
             text-align: center;
             margin: 2rem 0;
         }
-
         .love-title {
             font-size: 1.5rem;
             font-weight: bold;
@@ -90,7 +81,6 @@
             margin-bottom: 1rem;
             animation: glow 3s ease-in-out infinite;
         }
-
         .time-display {
             font-size: 1.125rem;
             font-weight: 500;
@@ -98,72 +88,62 @@
             margin-bottom: 1.5rem;
             animation: pulse 2s infinite;
         }
-
         .love-message {
             font-size: 0.875rem;
             line-height: 1.5;
-            color: #d1d5db;
+            color: #e5e7eb;
             max-width: 20rem;
             margin: 0 auto;
         }
-
         .playlist-section {
             width: 100%;
             max-width: 24rem;
             margin: 0 auto;
         }
-
         .playlist-card {
-            background: rgba(127, 29, 29, 0.4);
-            border: 1px solid rgba(248, 113, 113, 0.3);
-            backdrop-filter: blur(8px);
+            background: rgba(50, 10, 10, 0.6);
+            border: 1px solid rgba(248, 113, 113, 0.4);
+            backdrop-filter: blur(12px);
             border-radius: 0.5rem;
             padding: 1rem;
         }
-
         .playlist-header {
             display: flex;
             align-items: center;
             gap: 0.75rem;
             margin-bottom: 1rem;
         }
-
         .playlist-cover {
             width: 4rem;
             height: 4rem;
             border-radius: 0.5rem;
             overflow: hidden;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
             background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
             display: flex;
             align-items: center;
             justify-content: center;
         }
-
         .playlist-cover img {
             width: 100%;
             height: 100%;
             object-fit: cover;
         }
-
         .playlist-info h3 {
             font-size: 1.25rem;
             font-weight: bold;
             color: white;
         }
-
         .playlist-meta {
             font-size: 0.75rem;
-            color: #9ca3af;
+            color: #d1d5db;
             text-transform: uppercase;
             letter-spacing: 0.05em;
         }
-
         .playlist-details {
             font-size: 0.75rem;
-            color: #9ca3af;
+            color: #d1d5db;
         }
-
         .music-controls {
             display: flex;
             align-items: center;
@@ -171,7 +151,6 @@
             gap: 1rem;
             margin-bottom: 1rem;
         }
-
         .play-button {
             width: 3rem;
             height: 3rem;
@@ -186,31 +165,26 @@
             transition: background-color 0.3s;
             font-size: 1rem;
         }
-
         .play-button:hover {
             background: #059669;
         }
-
         .control-button {
             width: 2.5rem;
             height: 2.5rem;
             background: transparent;
             border: none;
-            color: rgba(255, 255, 255, 0.7);
+            color: rgba(255, 255, 255, 0.8);
             cursor: pointer;
             border-radius: 0.375rem;
             transition: background-color 0.3s;
             font-size: 1rem;
         }
-
         .control-button:hover {
-            background: rgba(255, 255, 255, 0.1);
+            background: rgba(255, 255, 255, 0.15);
         }
-
         .song-list {
             margin-bottom: 1rem;
         }
-
         .song-item {
             display: flex;
             align-items: center;
@@ -219,27 +193,22 @@
             border-radius: 0.375rem;
             transition: background-color 0.3s;
         }
-
         .song-item:hover {
-            background: rgba(255, 255, 255, 0.05);
+            background: rgba(255, 255, 255, 0.08);
         }
-
         .song-title {
             font-size: 0.875rem;
             color: white;
             font-weight: 500;
         }
-
         .song-artist {
             font-size: 0.75rem;
-            color: #9ca3af;
+            color: #d1d5db;
         }
-
         .song-duration {
             font-size: 0.75rem;
-            color: #9ca3af;
+            color: #d1d5db;
         }
-
         .spotify-link {
             display: block;
             width: 100%;
@@ -252,44 +221,92 @@
             text-decoration: none;
             font-size: 0.875rem;
             transition: background-color 0.3s;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            border-top: 1px solid rgba(255, 255, 255, 0.15);
             padding-top: 1rem;
             margin-top: 1rem;
         }
-
         .spotify-link:hover {
             background: #059669;
         }
-
         .floating-hearts {
             position: absolute;
             pointer-events: none;
-            animation: float 3s ease-in-out infinite;
-            font-size: 1.5rem;
+            animation: floatHeart 4s ease-in-out infinite;
+            filter: drop-shadow(0 0 8px rgba(255, 182, 193, 0.6));
         }
-
-        .heart-1 { top: 20%; left: 8%; animation-delay: 0s; }
-        .heart-2 { top: 32%; right: 12%; animation-delay: 1s; }
-        .heart-3 { bottom: 40%; left: 6%; animation-delay: 2s; }
-        .heart-4 { bottom: 60%; right: 8%; animation-delay: 3s; }
-
+        .heart-1 { 
+            top: 15%; 
+            left: 5%; 
+            font-size: 2rem; 
+            animation-delay: 0s; 
+            animation-duration: 3.5s;
+        }
+        .heart-2 { 
+            top: 25%; 
+            right: 8%; 
+            font-size: 1.8rem; 
+            animation-delay: 1.2s; 
+            animation-duration: 4.2s;
+        }
+        .heart-3 { 
+            bottom: 35%; 
+            left: 3%; 
+            font-size: 2.2rem; 
+            animation-delay: 2.1s; 
+            animation-duration: 3.8s;
+        }
+        .heart-4 { 
+            bottom: 50%; 
+            right: 6%; 
+            font-size: 1.6rem; 
+            animation-delay: 3.3s; 
+            animation-duration: 4.5s;
+        }
+        .heart-5 { 
+            top: 40%; 
+            left: 15%; 
+            font-size: 1.4rem; 
+            animation-delay: 0.8s; 
+            animation-duration: 3.2s;
+        }
+        .heart-6 { 
+            top: 60%; 
+            right: 20%; 
+            font-size: 1.9rem; 
+            animation-delay: 2.5s; 
+            animation-duration: 4.1s;
+        }
+        .heart-7 { 
+            bottom: 20%; 
+            left: 25%; 
+            font-size: 1.3rem; 
+            animation-delay: 1.7s; 
+            animation-duration: 3.6s;
+        }
+        .heart-8 { 
+            top: 80%; 
+            right: 30%; 
+            font-size: 2.1rem; 
+            animation-delay: 3.8s; 
+            animation-duration: 4.3s;
+        }
         .sparkle {
             position: absolute;
             border-radius: 50%;
             animation: sparkle 2s ease-in-out infinite;
         }
-
         .sparkle-1 { top: 25%; left: 25%; width: 8px; height: 8px; background: #fbbf24; }
         .sparkle-2 { top: 33%; right: 25%; width: 4px; height: 4px; background: #ec4899; animation-delay: 1s; }
         .sparkle-3 { bottom: 33%; left: 33%; width: 12px; height: 12px; background: #fb923c; }
         .sparkle-4 { bottom: 25%; right: 33%; width: 8px; height: 8px; background: #a855f7; animation-delay: 1s; }
-
+        .sparkle-5 { top: 45%; left: 15%; width: 6px; height: 6px; background: #f472b6; animation-delay: 0.5s; }
+        .sparkle-6 { bottom: 45%; right: 15%; width: 10px; height: 10px; background: #34d399; animation-delay: 1.5s; }
         .share-button {
             position: absolute;
             top: 1rem;
             left: 1rem;
-            background: rgba(0, 0, 0, 0.2);
-            backdrop-filter: blur(8px);
+            background: rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(12px);
             border: none;
             color: #ec4899;
             padding: 0.5rem 1rem;
@@ -298,52 +315,53 @@
             font-size: 0.875rem;
             transition: background-color 0.3s;
         }
-
         .share-button:hover {
-            background: rgba(0, 0, 0, 0.3);
+            background: rgba(0, 0, 0, 0.6);
         }
-
-        .theme-indicator {
-            position: absolute;
-            top: 1rem;
-            right: 1rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            padding: 0.5rem 0.75rem;
-            border-radius: 9999px;
-            backdrop-filter: blur(8px);
-            background: rgba(0, 0, 0, 0.2);
-            color: #fbbf24;
-            font-size: 0.875rem;
-            font-weight: 500;
+        @keyframes floatHeart {
+            0%, 100% { 
+                transform: translateY(0px) rotate(0deg) scale(1); 
+                opacity: 0.8;
+            }
+            25% { 
+                transform: translateY(-15px) rotate(5deg) scale(1.1); 
+                opacity: 1;
+            }
+            50% { 
+                transform: translateY(-25px) rotate(-3deg) scale(1.05); 
+                opacity: 0.9;
+            }
+            75% { 
+                transform: translateY(-10px) rotate(2deg) scale(1.08); 
+                opacity: 1;
+            }
         }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0px) rotate(0deg); }
-            50% { transform: translateY(-20px) rotate(180deg); }
-        }
-
         @keyframes sparkle {
-            0%, 100% { opacity: 0; transform: scale(0); }
-            50% { opacity: 1; transform: scale(1); }
+            0%, 100% { 
+                opacity: 0; 
+                transform: scale(0) rotate(0deg); 
+            }
+            50% { 
+                opacity: 1; 
+                transform: scale(1) rotate(180deg); 
+            }
         }
-
         @keyframes pulse {
             0%, 100% { opacity: 1; }
             50% { opacity: 0.5; }
         }
-
         @keyframes glow {
             0%, 100% { text-shadow: 0 0 5px currentColor; }
             50% { text-shadow: 0 0 20px currentColor, 0 0 30px currentColor; }
         }
-
         @media (max-width: 640px) {
             .container { padding: 1rem; }
             .photo-frame { width: 14rem; height: 18rem; }
             .love-title { font-size: 1.25rem; }
             .time-display { font-size: 1rem; }
+            .floating-hearts {
+                font-size: 1.2rem !important;
+            }
         }
     </style>
 </head>
@@ -352,25 +370,22 @@
     <button class="share-button" onclick="shareWebsite()">
         📤 Compartilhar
     </button>
-
-    <!-- Theme Indicator -->
-    <div class="theme-indicator">
-        <span id="theme-icon">🌙</span>
-        <span id="theme-text">Noite</span>
-    </div>
-
-    <!-- Floating Hearts -->
-    <div class="floating-hearts heart-1">💛</div>
-    <div class="floating-hearts heart-2">💛</div>
-    <div class="floating-hearts heart-3">💛</div>
-    <div class="floating-hearts heart-4">💛</div>
-
-    <!-- Sparkles -->
+    <!-- Beautiful Floating Hearts -->
+    <div class="floating-hearts heart-1">💖</div>
+    <div class="floating-hearts heart-2">💕</div>
+    <div class="floating-hearts heart-3">❤️</div>
+    <div class="floating-hearts heart-4">💗</div>
+    <div class="floating-hearts heart-5">💓</div>
+    <div class="floating-hearts heart-6">💝</div>
+    <div class="floating-hearts heart-7">💘</div>
+    <div class="floating-hearts heart-8">💞</div>
+    <!-- Enhanced Sparkles -->
     <div class="sparkle sparkle-1"></div>
     <div class="sparkle sparkle-2"></div>
     <div class="sparkle sparkle-3"></div>
     <div class="sparkle sparkle-4"></div>
-
+    <div class="sparkle sparkle-5"></div>
+    <div class="sparkle sparkle-6"></div>
     <div class="container">
         <!-- Photo Frame -->
         <div class="photo-frame" id="photoFrame">
@@ -379,7 +394,6 @@
             <div class="photo-corner corner-2"></div>
             <div class="photo-corner corner-3"></div>
         </div>
-
         <!-- Love Counter -->
         <div class="love-counter">
             <h2 class="love-title">Eu te amo há:</h2>
@@ -390,7 +404,6 @@
                 Te ter na minha vida é como encontrar paz no meio do caos. Seu olhar me acalma, seu toque me ancora, e o seu sorriso transforma os dias comuns em momentos inesquecíveis.
             </p>
         </div>
-
         <!-- Spotify Playlist -->
         <div class="playlist-section">
             <div class="playlist-card">
@@ -405,7 +418,6 @@
                         <div class="playlist-details">pусский and nina🖤 • 22 songs, 1hr 4 min</div>
                     </div>
                 </div>
-
                 <!-- Music Controls -->
                 <div class="music-controls">
                     <button class="play-button" onclick="openSpotify()">
@@ -414,7 +426,6 @@
                     <button class="control-button">➕</button>
                     <button class="control-button">⋯</button>
                 </div>
-
                 <!-- Song List -->
                 <div class="song-list">
                     <div class="song-item">
@@ -446,25 +457,22 @@
                         <div class="song-duration">3:33</div>
                     </div>
                 </div>
-
                 <!-- Spotify Link -->
-                <a href="https://open.spotify.com/playlist/5Oj01ekqd545pZEQ0LEbMb?si=868e167d43fa494c" 
-                   target="_blank" 
-                   class="spotify-link">
+                <a href="https://open.spotify.com/playlist/5Oj01ekqd545pZEQ0LEbMb?si=868e167d43fa494c"
+                    target="_blank"
+                    class="spotify-link">
                     🎵 Abrir no Spotify
                 </a>
             </div>
         </div>
     </div>
-
     <script>
         // Data de início do relacionamento
         const startDate = new Date('2025-06-06T00:00:00');
-
         // URLs das imagens atualizadas
         const coupleImageUrl = 'https://i.pinimg.com/736x/da/da/9f/dada9fe757bcb0302faa6640748ab844.jpg';
         const playlistImageUrl = 'https://i.pinimg.com/736x/d0/19/25/d01925163d9606f06fbe978dfa7204de.jpg';
-
+        
         // Função para carregar imagens com múltiplas tentativas
         function loadImageWithFallback(url, callback, fallbackCallback) {
             const img = new Image();
@@ -505,7 +513,7 @@
             
             img.src = url;
         }
-
+        
         // Função para carregar imagens
         function loadImages() {
             // Carregar foto do casal
@@ -524,7 +532,7 @@
                     console.log('Mantendo placeholder da foto do casal');
                 }
             );
-
+            
             // Carregar capa da playlist
             loadImageWithFallback(
                 playlistImageUrl,
@@ -537,48 +545,26 @@
                 }
             );
         }
-
+        
         // Função para atualizar o contador
         function updateCounter() {
             const now = new Date();
             const diff = now.getTime() - startDate.getTime();
-
             const years = Math.floor(diff / (1000 * 60 * 60 * 24 * 365));
             const days = Math.floor((diff % (1000 * 60 * 60 * 24 * 365)) / (1000 * 60 * 60 * 24));
             const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
             const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
             const seconds = Math.floor((diff % (1000 * 60)) / 1000);
-
+            
             document.getElementById('timeCounter').textContent = 
                 `${years} anos, ${days} dias, ${hours} horas, ${minutes} minutos e ${seconds} segundos`;
         }
-
-        // Função para verificar se é dia ou noite
-        function updateTheme() {
-            const hour = new Date().getHours();
-            const isDayTime = hour >= 6 && hour < 18;
-            
-            const themeIcon = document.getElementById('theme-icon');
-            const themeText = document.getElementById('theme-text');
-            
-            if (isDayTime) {
-                themeIcon.textContent = '☀️';
-                themeText.textContent = 'Dia';
-                document.body.style.background = 'linear-gradient(135deg, #fce7f3, #fed7aa, #fef3c7)';
-                document.body.style.color = '#374151';
-            } else {
-                themeIcon.textContent = '🌙';
-                themeText.textContent = 'Noite';
-                document.body.style.background = 'linear-gradient(135deg, #0f172a, #581c87, #312e81)';
-                document.body.style.color = 'white';
-            }
-        }
-
+        
         // Função para abrir Spotify
         function openSpotify() {
             window.open('https://open.spotify.com/playlist/5Oj01ekqd545pZEQ0LEbMb?si=868e167d43fa494c', '_blank');
         }
-
+        
         // Função para compartilhar
         function shareWebsite() {
             if (navigator.share) {
@@ -594,17 +580,13 @@
                 });
             }
         }
-
+        
         // Inicializar
         loadImages();
         updateCounter();
-        updateTheme();
-
+        
         // Atualizar contador a cada segundo
         setInterval(updateCounter, 1000);
-
-        // Atualizar tema a cada minuto
-        setInterval(updateTheme, 60000);
     </script>
 </body>
 </html>

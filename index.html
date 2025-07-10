@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nosso Amor ❤️ - Contador de Tempo Juntos</title>
+    <meta name="description" content="Um site especial para celebrar nosso amor com contador de tempo, playlist romântica e muito carinho">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: linear-gradient(135deg, #0f172a, #581c87, #312e81);
+            color: white;
+            min-height: 100vh;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 2rem 1.5rem;
+            min-height: 100vh;
+            position: relative;
+            z-index: 10;
+        }
+
+        .photo-frame {
+            width: 16rem;
+            height: 20rem;
+            border-radius: 1rem;
+            overflow: hidden;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+            border: 4px solid rgba(251, 146, 60, 0.3);
+            position: relative;
+            margin-top: 2rem;
+        }
+
+        .photo-frame img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .photo-corner {
+            position: absolute;
+            width: 8px;
+            height: 8px;
+            background: white;
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+
+        .corner-1 { top: 8px; right: 8px; }
+        .corner-2 { bottom: 8px; left: 8px; }
+        .corner-3 { bottom: 8px; right: 8px; }
+
+        .love-counter {
+            text-align: center;
+            margin: 2rem 0;
+        }
+
+        .love-title {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #fed7aa;
+            margin-bottom: 1rem;
+            animation: glow 3s ease-in-out infinite;
+        }
+
+        .time-display {
+            font-size: 1.125rem;
+            font-weight: 500;
+            color: #fde68a;
+            margin-bottom: 1.5rem;
+            animation: pulse 2s infinite;
+        }
+
+        .love-message {
+            font-size: 0.875rem;
+            line-height: 1.5;
+            color: #d1d5db;
+            max-width: 20rem;
+            margin: 0 auto;
+        }
+
+        .playlist-section {
+            width: 100%;
+            max-width: 24rem;
+            margin: 0 auto;
+        }
+
+        .playlist-card {
+            background: rgba(127, 29, 29, 0.4);
+            border: 1px solid rgba(248, 113, 113, 0.3);
+            backdrop-filter: blur(8px);
+            border-radius: 0.5rem;
+            padding: 1rem;
+        }
+
+        .playlist-header {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 1rem;
+        }
+
+        .playlist-cover {
+            width: 4rem;
+            height: 4rem;
+            border-radius: 0.5rem;
+            overflow: hidden;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        .playlist-cover img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .playlist-info h3 {
+            font-size: 1.25rem;
+            font-weight: bold;
+            color: white;
+        }
+
+        .playlist-meta {
+            font-size: 0.75rem;
+            color: #9ca3af;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .playlist-details {
+            font-size: 0.75rem;
+            color: #9ca3af;
+        }
+
+        .music-controls {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .play-button {
+            width: 3rem;
+            height: 3rem;
+            background: #10b981;
+            border: none;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            animation: pulse 2s infinite;
+            transition: background-color 0.3s;
+        }
+
+        .play-button:hover {
+            background: #059669;
+        }
+
+        .control-button {
+            width: 2.5rem;
+            height: 2.5rem;
+            background: transparent;
+            border: none;
+            color: rgba(255, 255, 255, 0.7);
+            cursor: pointer;
+            border-radius: 0.375rem;
+            transition: background-color 0.3s;
+        }
+
+        .control-button:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .song-list {
+            margin-bottom: 1rem;
+        }
+
+        .song-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0.5rem;
+            border-radius: 0.375rem;
+            transition: background-color 0.3s;
+        }
+
+        .song-item:hover {
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .song-title {
+            font-size: 0.875rem;
+            color: white;
+            font-weight: 500;
+        }
+
+        .song-artist {
+            font-size: 0.75rem;
+            color: #9ca3af;
+        }
+
+        .song-duration {
+            font-size: 0.75rem;
+            color: #9ca3af;
+        }
+
+        .spotify-link {
+            display: block;
+            width: 100%;
+            text-align: center;
+            padding: 0.5rem 1rem;
+            background: #10b981;
+            color: black;
+            font-weight: 600;
+            border-radius: 9999px;
+            text-decoration: none;
+            font-size: 0.875rem;
+            transition: background-color 0.3s;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 1rem;
+            margin-top: 1rem;
+        }
+
+        .spotify-link:hover {
+            background: #059669;
+        }
+
+        .floating-hearts {
+            position: absolute;
+            pointer-events: none;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .heart-1 { top: 20%; left: 8%; animation-delay: 0s; }
+        .heart-2 { top: 32%; right: 12%; animation-delay: 1s; }
+        .heart-3 { bottom: 40%; left: 6%; animation-delay: 2s; }
+        .heart-4 { bottom: 60%; right: 8%; animation-delay: 3s; }
+
+        .sparkle {
+            position: absolute;
+            border-radius: 50%;
+            animation: sparkle 2s ease-in-out infinite;
+        }
+
+        .sparkle-1 { top: 25%; left: 25%; width: 8px; height: 8px; background: #fbbf24; }
+        .sparkle-2 { top: 33%; right: 25%; width: 4px; height: 4px; background: #ec4899; animation-delay: 1s; }
+        .sparkle-3 { bottom: 33%; left: 33%; width: 12px; height: 12px; background: #fb923c; }
+        .sparkle-4 { bottom: 25%; right: 33%; width: 8px; height: 8px; background: #a855f7; animation-delay: 1s; }
+
+        .share-button {
+            position: absolute;
+            top: 1rem;
+            left: 1rem;
+            background: rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(8px);
+            border: none;
+            color: #ec4899;
+            padding: 0.5rem 1rem;
+            border-radius: 9999px;
+            cursor: pointer;
+            font-size: 0.875rem;
+            transition: background-color 0.3s;
+        }
+
+        .share-button:hover {
+            background: rgba(0, 0, 0, 0.3);
+        }
+
+        .theme-indicator {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 0.75rem;
+            border-radius: 9999px;
+            backdrop-filter: blur(8px);
+            background: rgba(0, 0, 0, 0.2);
+            color: #fbbf24;
+            font-size: 0.875rem;
+            font-weight: 500;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(180deg); }
+        }
+
+        @keyframes sparkle {
+            0%, 100% { opacity: 0; transform: scale(0); }
+            50% { opacity: 1; transform: scale(1); }
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+
+        @keyframes glow {
+            0%, 100% { text-shadow: 0 0 5px currentColor; }
+            50% { text-shadow: 0 0 20px currentColor, 0 0 30px currentColor; }
+        }
+
+        @media (max-width: 640px) {
+            .container { padding: 1rem; }
+            .photo-frame { width: 14rem; height: 18rem; }
+            .love-title { font-size: 1.25rem; }
+            .time-display { font-size: 1rem; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Share Button -->
+    <button class="share-button" onclick="shareWebsite()">
+        📤 Compartilhar
+    </button>
+
+    <!-- Theme Indicator -->
+    <div class="theme-indicator">
+        <span id="theme-icon">🌙</span>
+        <span id="theme-text">Noite</span>
+    </div>
+
+    <!-- Floating Hearts -->
+    <div class="floating-hearts heart-1">💛</div>
+    <div class="floating-hearts heart-2">💛</div>
+    <div class="floating-hearts heart-3">💛</div>
+    <div class="floating-hearts heart-4">💛</div>
+
+    <!-- Sparkles -->
+    <div class="sparkle sparkle-1"></div>
+    <div class="sparkle sparkle-2"></div>
+    <div class="sparkle sparkle-3"></div>
+    <div class="sparkle sparkle-4"></div>
+
+    <div class="container">
+        <!-- Photo Frame -->
+        <div class="photo-frame">
+            <img src="https://i.pinimg.com/736x/da/da/9f/dada9fe757bcb0302faa6640748ab844.jpg" alt="Foto do casal" crossorigin="anonymous">
+            <div class="photo-corner corner-1"></div>
+            <div class="photo-corner corner-2"></div>
+            <div class="photo-corner corner-3"></div>
+        </div>
+
+        <!-- Love Counter -->
+        <div class="love-counter">
+            <h2 class="love-title">Eu te amo há:</h2>
+            <div class="time-display" id="timeCounter">
+                0 anos, 0 dias, 0 horas, 0 minutos e 0 segundos
+            </div>
+            <p class="love-message">
+                Te ter na minha vida é como encontrar paz no meio do caos. Seu olhar me acalma, seu toque me ancora, e o seu sorriso transforma os dias comuns em momentos inesquecíveis.
+            </p>
+        </div>
+
+        <!-- Spotify Playlist -->
+        <div class="playlist-section">
+            <div class="playlist-card">
+                <!-- Playlist Header -->
+                <div class="playlist-header">
+                    <div class="playlist-cover">
+                        <img src="https://sjc.microlink.io/uMmkpq_PnP--VAOGNYrRX5yzxCU5LH9JDN0lRXwZ5O2TmoGYDmQUMsnRrxS4QoGotVTd2Qobbbitd3vTpt3v2w.jpeg" alt="Capa da playlist - gatinhos fofos" crossorigin="anonymous">
+                    </div>
+                    <div class="playlist-info">
+                        <div class="playlist-meta">Public Playlist</div>
+                        <h3>Eu e ela ❤️</h3>
+                        <div class="playlist-details">pусский and nina🖤 • 22 songs, 1hr 4 min</div>
+                    </div>
+                </div>
+
+                <!-- Music Controls -->
+                <div class="music-controls">
+                    <button class="play-button" onclick="openSpotify()">
+                        ▶️
+                    </button>
+                    <button class="control-button">➕</button>
+                    <button class="control-button">⋯</button>
+                </div>
+
+                <!-- Song List -->
+                <div class="song-list">
+                    <div class="song-item">
+                        <div>
+                            <div class="song-title">Not Allowed</div>
+                            <div class="song-artist">TV Girl</div>
+                        </div>
+                        <div class="song-duration">2:47</div>
+                    </div>
+                    <div class="song-item">
+                        <div>
+                            <div class="song-title">Nope your too late i already died</div>
+                            <div class="song-artist">wifiskeleton, i wanna be a jack-o-lantern</div>
+                        </div>
+                        <div class="song-duration">1:30</div>
+                    </div>
+                    <div class="song-item">
+                        <div>
+                            <div class="song-title">Dark Red</div>
+                            <div class="song-artist">Steve Lacy</div>
+                        </div>
+                        <div class="song-duration">2:53</div>
+                    </div>
+                    <div class="song-item">
+                        <div>
+                            <div class="song-title">Lovers Rock</div>
+                            <div class="song-artist">TV Girl</div>
+                        </div>
+                        <div class="song-duration">3:33</div>
+                    </div>
+                </div>
+
+                <!-- Spotify Link -->
+                <a href="https://open.spotify.com/playlist/5Oj01ekqd545pZEQ0LEbMb?si=868e167d43fa494c" 
+                   target="_blank" 
+                   class="spotify-link">
+                    🎵 Abrir no Spotify
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Data de início do relacionamento
+        const startDate = new Date('2025-06-06T00:00:00');
+
+        // Função para atualizar o contador
+        function updateCounter() {
+            const now = new Date();
+            const diff = now.getTime() - startDate.getTime();
+
+            const years = Math.floor(diff / (1000 * 60 * 60 * 24 * 365));
+            const days = Math.floor((diff % (1000 * 60 * 60 * 24 * 365)) / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+            document.getElementById('timeCounter').textContent = 
+                `${years} anos, ${days} dias, ${hours} horas, ${minutes} minutos e ${seconds} segundos`;
+        }
+
+        // Função para verificar se é dia ou noite
+        function updateTheme() {
+            const hour = new Date().getHours();
+            const isDayTime = hour >= 6 && hour < 18;
+            
+            const themeIcon = document.getElementById('theme-icon');
+            const themeText = document.getElementById('theme-text');
+            
+            if (isDayTime) {
+                themeIcon.textContent = '☀️';
+                themeText.textContent = 'Dia';
+                document.body.style.background = 'linear-gradient(135deg, #fce7f3, #fed7aa, #fef3c7)';
+            } else {
+                themeIcon.textContent = '🌙';
+                themeText.textContent = 'Noite';
+                document.body.style.background = 'linear-gradient(135deg, #0f172a, #581c87, #312e81)';
+            }
+        }
+
+        // Função para abrir Spotify
+        function openSpotify() {
+            window.open('https://open.spotify.com/playlist/5Oj01ekqd545pZEQ0LEbMb?si=868e167d43fa494c', '_blank');
+        }
+
+        // Função para compartilhar
+        function shareWebsite() {
+            if (navigator.share) {
+                navigator.share({
+                    title: 'Nosso Amor ❤️',
+                    text: 'Veja nosso contador de amor!',
+                    url: window.location.href
+                });
+            } else {
+                // Fallback para copiar URL
+                navigator.clipboard.writeText(window.location.href).then(() => {
+                    alert('Link copiado! 💕');
+                });
+            }
+        }
+
+        // Inicializar
+        updateCounter();
+        updateTheme();
+
+        // Atualizar contador a cada segundo
+        setInterval(updateCounter, 1000);
+
+        // Atualizar tema a cada minuto
+        setInterval(updateTheme, 60000);
+    </script>
+</body>
+</html>
